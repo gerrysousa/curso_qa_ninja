@@ -1,0 +1,1 @@
+puts 'Bem vindo ao curso Automação do zero da Ninja House'
