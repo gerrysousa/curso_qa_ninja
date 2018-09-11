@@ -12,9 +12,10 @@
 
 
 class ContaCorrente
-    attr_accessor :saldo, :valor_saque
+    attr_accessor :nome, :saldo 
 
-    def initialize(saldo)
+    def initialize(nome, saldo)
+        @nome=nome
         if saldo >= 1
         @saldo = saldo 
         puts 'Conta criada com sucesso!'     
@@ -64,10 +65,10 @@ def fluxo_caixa(resposta, conta)
     end
 end
 
-conta_1 = ContaCorrente.new(100)
+conta_1 = ContaCorrente.new('Gerry', 100)
 loop do   
     puts '_____________________________________________'
-    puts '| Olá, bem vindo ao Caixa de Banco v1       |'
+    puts '| Olá '+conta_1.nome+', bem vindo ao Caixa de Banco v1 |'
     puts '| Informe 1, para sacar 10 reias da conta.  |'
     puts '| Informe 2, para ver o saldo.              |'
     puts '|___________________________________________|'
