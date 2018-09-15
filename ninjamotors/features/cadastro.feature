@@ -15,44 +15,19 @@ Funcionalidade: Cadastro do usuário
 # 		| senha | 123456          |
 # 	Então sou autenticado com sucesso
 
-@sprint1
-Cenario: Email inválido
+@temp
+Esquema do Cenario: Tentativa de cadastro
 
 	Dado que estou na página de cadastro
-	Quando faço o meu cadastro com email inválido
-		| nome  | Gerry |
-		| email | teste |
-		| senha | 123456|
-		| mensagem | Email inválido.|
-	Então devo ver a mensagem "Email inválido."
+	Quando faço o meu cadastro com
+		| nome  |<nome> |
+		| email |<email>|
+		| senha |<senha>|
+	Então devo ver a mensagem "<alerta>"
 
-@sprint1
-Cenario: Senha não informada
-
-	Dado que estou na página de cadastro
-	Quando faço o meu cadastro sem informar a senha
-		| nome  	| Gerry 			|
-		| email | gerry@teste.com |
-		| mensagem  | Senha não informada.	|
-	Então devo ver a mensagem "Senha não informada."
-
-@sprint1
-Cenario: Nome não informado
-
-	Dado que estou na página de cadastro
-	Quando faço o meu cadastro sem informar o nome
-		| email | teste@teste.com |
-		| senha | 123456|
-		| mensagem | Nome não informado.|
-	Então devo ver a mensagem "Nome não informado."
-
-@sprint2
-Cenario: Senha muito curta
-	
-	Dado que estou na página de cadastro
-	Quando faço o meu cadastro com senha com de cinco digitos
-		| nome  	| Gerry 			|
-		| email | gerry@teste.com |
-		| senha 	| 12345 			|
-		| mensagem  | Senha deve ter pelo menos 6 caracteres.	|
-	Então devo ver a mensagem "Senha deve ter pelo menos 6 caracteres."
+Exemplos:
+	  | nome  | email           | senha  | mensagem                                |
+      | Gerry | testes          | 123456 | Email inválido.                         |
+      | Gerry | gerry@teste.com |        | Senha não informada.                    |
+      |       | gerry@teste.com | 123456 | Nome não informado.                     |
+      | Gerry | gerry@teste.com | 12345  | Senha deve ter pelo menos 6 caracteres. |

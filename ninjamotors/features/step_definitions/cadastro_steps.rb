@@ -1,4 +1,5 @@
 Dado('que estou na página de cadastro') do
+  visit 'http://ninjamotors.herokuapp.com/api/reset'
   visit 'http://ninjamotors.herokuapp.com/cadastre-se'
 end
 
